@@ -1,9 +1,9 @@
 steps:
-- name: 'gcr.io/cloud-builders/npm'
-  args: ['install']
-- name: 'angular/ngcontainer:latest'
+- name: 'gcr.io/$PROJECT_ID/ngcontainer'
+  args: ['npm', 'install']
+- name: 'gcr.io/$PROJECT_ID/ngcontainer'
   args: ['npm', 'run', 'test:ci']
-- name: 'gcr.io/cloud-builders/npm'
+- name: 'gcr.io/$PROJECT_ID/ngcontainer'
   args: ['npm', 'run', 'build']
 - name: 'gcr.io/cloud-builders/docker'
   args: ["build", "-t", "gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA", "."]
@@ -21,3 +21,9 @@ steps:
 images:
   - 'gcr.io/$PROJECT_ID/$REPO_NAME:$SHORT_SHA'
   - 'gcr.io/$PROJECT_ID/$REPO_NAME:latest'
+
+# steps:
+# - name: 'gcr.io/cloud-builders/docker'
+#   args: [ 'build', '-t', 'gcr.io/$PROJECT_ID/ngcontainer', '.', '-f', 'Dockerfile_angular' ]
+# images:
+# - 'gcr.io/$PROJECT_ID/ngcontainer'
