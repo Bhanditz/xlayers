@@ -31,7 +31,7 @@
     "big-integer": "^1.6.30",
     "buffer": "^5.1.0",
     "core-js": "^2.5.4",
-    "jszip": "^3.1.5",
+    "jszip": "^3.7.0",
     "ngx-color": "^1.4.0",
     "ngx-monaco-editor": "^6.0.0",
     "rxjs": "^6.0.0",
